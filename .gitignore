@@ -1,0 +1,11 @@
+# Eigene Brand-Daten nicht ins öffentliche Repo pushen —
+# nur das Beispiel bleibt versioniert.
+Brands/*
+!Brands/beispiel-brand/
+
+# Betriebssystem/Editor
+.DS_Store
+Thumbs.db
+
+# Lokale Claude-Einstellungen (Skill bleibt versioniert)
+.claude/settings.local.json
