@@ -1,4 +1,4 @@
-# email-design-system
+# Agentic E-Mail Designer
 
 Von Null zu fertigen E-Mail-Designs für **deine Brand** — mit Claude Code + Figma.
 Brand-Kit, 23 Section-Vorlagen, XXL-Headline-System, QA und Export inklusive.
