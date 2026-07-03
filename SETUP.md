@@ -33,11 +33,11 @@ Du musst nicht designen und nicht programmieren können. Claude macht die Arbeit
 
 ## 2. Dieses Repo holen
 
-**Aktion — Weg A (einfach):** Öffne `{{REPO_URL}}` im Browser → grüner Button **„Code" → „Download ZIP"** → ZIP entpacken → Ordner an einen Ort legen, den du wiederfindest (z. B. Dokumente).
+**Aktion — Weg A (einfach):** Öffne `https://github.com/simon-schaeferai/agentic-email-designer.git` im Browser → grüner Button **„Code" → „Download ZIP"** → ZIP entpacken → Ordner an einen Ort legen, den du wiederfindest (z. B. Dokumente).
 
 **Aktion — Weg B (mit git):**
 ```
-git clone {{REPO_URL}}
+git clone https://github.com/simon-schaeferai/agentic-email-designer.git
 ```
 
 **✓ Check:** Du hast einen Ordner `email-design-system` mit `SETUP.md`, `System/` und `Brands/` darin.
