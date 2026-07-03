@@ -40,11 +40,11 @@ Du musst nicht designen und nicht programmieren können. Claude macht die Arbeit
 git clone https://github.com/simon-schaeferai/agentic-email-designer.git
 ```
 
-**✓ Check:** Du hast einen Ordner `email-design-system` mit `SETUP.md`, `System/` und `Brands/` darin.
+**✓ Check:** Du hast einen Ordner `agentic-email-designer` (beim ZIP-Download heißt er `agentic-email-designer-main`) mit `SETUP.md`, `System/` und `Brands/` darin.
 
 ## 3. Claude Code in diesem Ordner starten
 
-**Aktion:** Öffne Claude Code **im Ordner `email-design-system`** (Desktop-App: „Open Folder…" → den Ordner wählen · Terminal: `cd` in den Ordner, dann `claude`).
+**Aktion:** Öffne Claude Code **im Ordner `agentic-email-designer`** (Desktop-App: „Open Folder…" → den Ordner wählen · Terminal: `cd` in den Ordner, dann `claude`).
 
 **✓ Check:** Schreib Claude: *„Was steht in SETUP.md Kapitel 0?"* — Claude fasst die Checkliste zusammen. Wenn ja: Claude sieht deine Dateien, alles richtig.
 
@@ -164,7 +164,6 @@ Das ist Absicht — besser als erfundene Inhalte. Die häufigsten Meldungen und 
 | Trustpilot-Recherche schlägt fehl (403) | Normal — mach Screenshots deiner besten Reviews und gib sie Claude |
 | Eine Mail sieht kaputt aus (Überlappungen o. ä.) | Sag: *„Mach einen QA-Pass auf Mail X nach System/MASTER-EMAIL-SYSTEM §10 und fixe alle Overlaps."* |
 | Claude „vergisst" das System in einer neuen Session | Einfach wieder `/email-design meine-brand` aufrufen — das lädt alles neu |
-| Fragen? | Community: `{{COMMUNITY_LINK}}` |
 
 ---
 
