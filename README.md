@@ -1,5 +1,7 @@
 # agentic-email-designer
 
+![teaser](docs/teaser.png)
+
 Von Null zu fertigen Marketing-E-Mail-Designs für deine Brand, gebaut mit Claude Code und Figma. Du lieferst Brand-Infos und gibst frei, Claude recherchiert, designt in deinem Figma und exportiert fertige Bild-Slices für Klaviyo und Co.
 
 *Der immer gleiche Teil an einer Mail-Kampagne (Hero, Sections, QA, Export) frisst die meiste Zeit, ohne dass er das Ergebnis besonders macht. Dieses System übernimmt genau diesen Teil, nach festen Regeln, damit keine zwei Mails gleich aussehen. Nimm es, setz deine Brand ein, bau los. Simon*
