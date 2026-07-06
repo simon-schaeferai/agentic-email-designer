@@ -60,6 +60,8 @@ Baue mir 5 E-Mails: 1x Launch, 1x Social Proof, 1x FAQ, 1x Bundle, 1x Restock.
 - Kein HTML-E-Mail-Code als Output. Das System liefert Bild-Slices plus Alt-Texte, gedacht für Klaviyo und ähnliche Tools.
 - Getestet mit Claude Code plus Figma-Connector. Andere Setups können abweichen.
 
+Was sich am System ändert, steht im [CHANGELOG.md](CHANGELOG.md) — eigene Learnings zurückgeben: [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 MIT

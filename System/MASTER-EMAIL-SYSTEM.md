@@ -168,6 +168,8 @@ Wave · Wave 2 · Zigzag · Zigzag fein · Diagonal · Diagonal 2 · Arc · Arc-
 
 Mindestens: 3 Hero-Szenen + 2 Freisteller-Motive + 1 Hand-Interaktion **pro Produktlinie**.
 
+> ⚠️ Shop-Galerien (z. B. Shopify) mischen cleane Produktfotos mit Marketing-Creatives, die eingebrannte Headlines/Stat-Boxen/Badges enthalten. Nur cleane Originale verwenden — jedes Bild VOR Verwendung sichten; unvermeidbare Creatives per CROP auf die cleane Region beschneiden (FIGMA-RECIPES §2).
+
 ## 10. Qualitätssicherung (Pflicht nach jedem Build)
 
 1. Export über `download_assets` (PNG, Scale 1 — Achtung 4096-px-Deckel; `get_screenshot` ist mit 1024 px zu klein)
@@ -184,6 +186,7 @@ Mindestens: 3 Hero-Szenen + 2 Freisteller-Motive + 1 Hand-Interaktion **pro Prod
 ## 11. Export & Lieferung (Klaviyo)
 
 - Mail in **8 gleich hohe Slices**, Export **2x JPEG**
+- Ablage: `Brands/<brand>/export/<mail-name>/` — Slices nummeriert (`01.jpg` … `08.jpg`) + `alt-texte.md` + `subjects.md`
 - Pro Slice ein **Alt-Text**; alle Alt-Texte zusammen = lesbare Text-Version der Mail
 - Lieferpaket pro Mail: Slices + Alt-Texte + 3–5 Subject/Preheader-Sets + Figma-Link
 - Bei Klaviyo-Zugang: Bilder hochladen + Template anlegen (Kunden-eigene Klaviyo-MCP-Verbindung nötig)

@@ -2,7 +2,7 @@
 
 > Kopie dieser Datei nach `Brands/<deine-brand>/BRAND.md`. Claude füllt sie im Onboarding aus — DU prüfst und gibst frei.
 > Diese Datei ist die EINZIGE Quelle für alle Brand-Parameter im MASTER-EMAIL-SYSTEM.
-> Status: ☐ Entwurf ☐ Geprüft ☐ **Von mir freigegeben am: ____**
+> Status: ☐ Entwurf (recherchiert + verifiziert) ☐ Geprüft ☐ **Von mir freigegeben am: ____**
 
 ---
 
@@ -59,9 +59,11 @@ Pro Produktlinie ein Block:
 |---|---|
 | URL | |
 | Preis(e) | |
-| Kern-USPs (max. 6, belegbar) | |
-| Feature-Fakten (für Sections) | z. B. Maße, Material, Laufzeiten, Kompatibilitäten |
+| Kern-USPs (max. 6, belegbar) | mit Quelle (Produktseite/FAQ) |
+| Feature-Fakten (für Sections) | z. B. Maße, Material, Laufzeiten, Kompatibilitäten — mit Quelle |
 | Bild-Ordner | `assets/<produkt>/` |
+
+**Aktueller Anlass/Kampagne:** z. B. Drop/Launch/Sale mit Datum + Quelle (Website-Countdown, Announcement) — der naheliegendste Mail-Aufhänger. Falls keiner: Zeile streichen.
 
 ## 4. Trust-Fakten (`TRUST_FACTS`) — NUR Belegbares
 
@@ -104,4 +106,4 @@ Nur echte, wörtliche Reviews (Kürzen ok, Umschreiben nein):
 | Figma-Datei (Edit-Zugang!) | `<fileKey>` |
 | ESP | Klaviyo-Konto: ____ · MCP verbunden: ☐ |
 | Freigabe | du selbst — Mails erst exportieren, wenn du sie abgenickt hast |
-| No-Gos / Legal | z. B. keine Heilversprechen, Bildrechte-Einschränkungen, Wettbewerber-Nennungen |
+| No-Gos / Legal | z. B. keine Heilversprechen, Bildrechte-Einschränkungen, Wettbewerber-Nennungen — plus No-Go-Empfehlungen aus der Recherche (z. B. kritische Review-Lage auf einer Plattform, nicht belegbare Claims) |

@@ -33,7 +33,7 @@ README.md · SETUP.md           Community-Doku
 2. Nichts erfinden: Fakten, Reviews und Trust-Zahlen nur aus dem BRAND.md mit Quelle. Fehlt etwas, „Mir fehlt: …" melden statt Platzhalter einzubauen.
 3. QA-Pflicht nach jedem Build (MASTER §10): exportieren, croppen, ansehen, nie ungesehen liefern.
 4. Nach jedem Build/Upload sofort `HASHES.md`/`NODES.md` der Brand aktualisieren (Wiederanlauf-Fähigkeit).
-5. `System/` nur ändern, wenn der Nutzer es ausdrücklich verlangt; es ist das Regelwerk für alle.
+5. `System/` nur mit ausdrücklicher Freigabe des Nutzers ändern (auch im Learnings-Pass des Skills); es ist das Regelwerk für alle. Jede `System/`-Änderung bekommt eine Zeile in `CHANGELOG.md`.
 6. Exporte nach `Brands/<brand>/export/`, Temporäres ins Scratchpad, nie ins Projekt-Root.
 7. Deutsche Umlaute immer korrekt (ä, ö, ü, ß), niemals ae/oe/ue als Ersatz.
 

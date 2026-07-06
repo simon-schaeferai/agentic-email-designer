@@ -15,4 +15,3 @@ CLAUDE.local.md
 # Secrets
 .env
 .env.*
-!.env.example

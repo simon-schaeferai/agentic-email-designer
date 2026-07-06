@@ -18,10 +18,21 @@ Alle hart erarbeiteten Learnings aus der Produktion. Vor jedem Build lesen.
   ```
 - **Constraints locken** nach jedem Build: `n.constraints = {horizontal:'MIN', vertical:'MIN'}` auf ALLE Kinder — sonst driftet alles beim Frame-Resize.
 - Fehlgeschlagene Scripts sind **atomar** (nichts wurde geändert) → Fehler lesen, fixen, neu laufen lassen.
+- **Fixes an Bestands-Nodes:** IDs immer aus den return-Werten früherer Calls nehmen, nie aus dem Gedächtnis — und vor der Mutation den Node-Typ prüfen (`n.type`). Klassiker: `characters`-Edit trifft einen STAR statt des TEXT-Nodes, weil die ID um eins daneben lag.
 
 ## 2. Bilder & Cutouts
 
-- Freisteller lokal: `rembg` (Modell u2net) → PNG → per `upload_assets` (POST multipart) hochladen.
+- **Upload-Flow konkret:** `upload_assets` (count=N) liefert Submit-URLs → pro Bild `curl -s -X POST "<submitUrl>" -F "file=@bild.webp;type=image/webp"` → die Response enthält den `imageHash` direkt. Der Upload legt einen Temp-Frame auf dem Canvas an → im nächsten Script löschen. Hash sofort in `Brands/<brand>/HASHES.md`.
+- **Freisteller-Optionen, in dieser Reihenfolge:**
+  1. **BG-Blend statt Freistellen:** Studiofotos haben oft einen uniformen Hintergrund (Eckpixel lokal mit PIL prüfen). Section-/Karten-BG exakt auf diesen Ton setzen → Bild blendet nahtlos, funktioniert auch rotiert. Kein rembg nötig.
+  2. Freisteller lokal: `rembg` (Modell u2net) → PNG → hochladen (Achtung: pip-Install kann an PEP 668 scheitern).
+- **CROP gegen eingebrannte Overlays** (Headlines/Stat-Boxen im Shop-Bild): cleane Region lokal vermessen (PIL-Zeilenfüllungs-Profil zeigt die Lücke zwischen Overlay und Produkt), dann:
+  ```js
+  img.fills = [{type:'IMAGE', scaleMode:'CROP',
+    imageTransform: [[w, 0, x0], [0, h, y0]],   // Region normalisiert 0–1
+    imageHash: '<hash>'}];
+  // Node-Seitenverhältnis MUSS dem Regions-Verhältnis entsprechen, sonst verzerrt
+  ```
 - **Transparente PNGs IMMER `scaleMode:'FIT'`** — `FILL` erzeugt weiße Kästen.
 - Figma dedupliziert per Hash: Hashes pro Brand in `Brands/<brand>/HASHES.md` pflegen und wiederverwenden:
   ```js
@@ -80,6 +91,7 @@ Zusammengehörige Elemente (Banner, Cards, Siegel) als **Frame** bauen (`createF
 
 ## 8. QA-Export
 
+- **Schnellster Weg für Frames bis ~2500 px:** `await frame.screenshot()` am ENDE desselben `use_figma`-Calls — das Bild kommt inline zurück, Build und Sichtprüfung in einem Call.
 - `download_assets` (PNG, scale 1) — bei Mails > 4096 px Höhe wird gedeckelt (Breite schrumpft proportional, ~530–630 px: ausreichend für QA).
 - `get_screenshot` liefert nur 1024 px lange Kante → für lange Mails unbrauchbar.
 - Crop-Workflow: Export laden → per PIL auf die Ziel-Region croppen → ansehen. NIE ungesehen liefern.
@@ -96,3 +108,10 @@ Pro Brand in `Brands/<brand>/` pflegen:
 - `HASHES.md` — Bild-Hash-Registry (Hash, Motiv, Seitenverhältnis)
 - `NODES.md` — Frame-IDs der gebauten Mails + Logo-Klon-Node
 - So kann jede neue Session ohne Re-Upload und ohne Suche weiterbauen.
+
+## 11. Export/Slicing (MASTER §11) — ⚠️ UNGETESTET, beim ersten realen Export verifizieren und dieses Rezept nachschärfen
+
+1. Frame-Höhe auf eine durch 8 teilbare Zahl bringen (unten minimal Weißraum ergänzen).
+2. Pro Slice einen Kind-Frame (1080 × H/8) bei y = i·H/8 anlegen mit `exportSettings = [{format:'JPG', constraint:{type:'SCALE', value:2}}]`.
+3. Je Slice einzeln `download_assets` — umgeht den 4096-px-Deckel, weil pro Slice exportiert wird.
+4. Ablage: `Brands/<brand>/export/<mail-name>/` als `01.jpg` … `08.jpg` + `alt-texte.md` (pro Slice ein Alt-Text, zusammen die lesbare Text-Version) + `subjects.md` (3–5 Subject/Preheader-Sets).

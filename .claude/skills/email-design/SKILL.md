@@ -46,4 +46,13 @@ Export via `download_assets` (PNG, scale 1) → Hero und jede Section croppen �
 
 ## Schritt 5 — Export & Lieferung
 
-Nach Freigabe: 8 gleiche Slices (2x JPEG) + Alt-Text pro Slice + 3–5 Subject/Preheader-Sets pro Mail (MASTER §6, §11). Optional (falls verbunden): Klaviyo-Upload. Abschließend Zusammenfassung mit Figma-Links und allen Headlines/CTAs.
+Nach Freigabe: 8 gleiche Slices (2x JPEG) + Alt-Text pro Slice + 3–5 Subject/Preheader-Sets pro Mail (MASTER §6, §11). Ablage: `Brands/<brand>/export/<mail-name>/`. Optional (falls verbunden): Klaviyo-Upload. Abschließend Zusammenfassung mit Figma-Links und allen Headlines/CTAs.
+
+## Schritt 6 — Learnings-Pass (PFLICHT am Session-Ende)
+
+Bevor die Session endet, zwei getrennte Rückflüsse:
+
+1. **Brand-spezifisch** (ohne Rückfrage): `Brands/<brand>/` aktualisieren — neue Hashes/Frame-IDs in `HASHES.md`/`NODES.md`, Brand-Besonderheiten ins `BRAND.md`, Status-Angaben zwischen BRAND.md und NODES.md synchron halten (keine widersprüchlichen Stände stehen lassen).
+2. **Generisch** (mit Freigabe): Wiederverwendbare Erkenntnisse (neue Figma-Rezepte, Recherche-Tricks, Fallen) dem Nutzer als konkreten Änderungsvorschlag für `System/FIGMA-RECIPES.md`/`MASTER`/`ONBOARDING` vorlegen. Nach Freigabe: einarbeiten per add/replace an der passenden Stelle (kein Anhäng-Log) + eine Zeile in `CHANGELOG.md`.
+
+Faustregel: Steht ein Rezept nur in einem Brand-Ordner, ist es für die Community verloren — generisches Wissen gehört ins `System/`.

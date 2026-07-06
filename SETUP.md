@@ -60,15 +60,15 @@ git clone https://github.com/simon-schaeferai/agentic-email-designer.git
 
 ## 5. Design-Bibliothek in dein Figma holen
 
-Die **EMAIL-SYSTEM-LIBRARY** enthält alle Master-Vorlagen: 4 Headline-Stile, 9 Übergänge, 23 fertige Section-Typen (neutral in Graustufen — deine Farben kommen später automatisch drauf).
+Die **EMAIL-SYSTEM-LIBRARY** (4 Headline-Stile, 9 Übergänge, 23 Section-Typen in Graustufen) ist eine **optionale visuelle Referenz** — du brauchst sie NICHT zwingend: Claude baut deine Mails auch direkt nach dem Regelwerk in einer neuen Figma-Datei. Genau so sind die ersten Produktions-Mails dieses Systems entstanden. Wenn dir das reicht: weiter zu Kapitel 6.
 
-Dieses Repo enthält bewusst **keinen** fertigen Figma-Link (jeder arbeitet in seinem eigenen Figma). Du hast zwei Wege, an die Library zu kommen:
+Dieses Repo enthält bewusst **keinen** fertigen Figma-Link (jeder arbeitet in seinem eigenen Figma). Willst du die Library trotzdem:
 
-**Weg A (Standard, ohne Vorlage):** Sag Claude: *„Baue mir die Master-Library nach System/MASTER-EMAIL-SYSTEM.md §4 in einer neuen Figma-Datei auf."* — Claude legt die komplette EMAIL-SYSTEM-LIBRARY in deinem Figma an.
+**Weg A (bauen lassen):** Sag Claude: *„Baue mir die Master-Library nach System/MASTER-EMAIL-SYSTEM.md §2 + §4 in einer neuen Figma-Datei auf."*
 
 **Weg B (falls du schon eine Library-Datei hast):** Öffne deinen **eigenen** Figma-Link dazu → oben **„Duplicate"/„Duplizieren"** → die Kopie liegt in deinen Drafts. Deinen Link kannst du dir hier notieren: `______`.
 
-**✓ Check:** In deinem Figma existiert eine Datei „EMAIL-SYSTEM-LIBRARY".
+**✓ Check (nur falls Library gewünscht):** In deinem Figma existiert eine Datei „EMAIL-SYSTEM-LIBRARY".
 
 ## 6. Dein Brand-Onboarding starten
 
@@ -163,6 +163,7 @@ Das ist Absicht — besser als erfundene Inhalte. Die häufigsten Meldungen und 
 |---|---|
 | `/email-design` wird nicht erkannt | Claude Code wurde nicht im Repo-Ordner gestartet → Kapitel 3 |
 | Figma-Fehler „no edit access" | Die Verbindung braucht Bearbeiten-Rechte — nutze Dateien aus deinem eigenen Account (Kapitel 4/5) |
+| Figma-Meldung „tool call limit reached" | Starter-Plan/View-Seat erlaubt nur ~6 Figma-MCP-Calls pro MONAT — fürs Produzieren brauchst du einen Full-/Dev-Seat (Pro-Plan: 200 Calls/Tag) |
 | Trustpilot-Recherche schlägt fehl (403) | Normal — mach Screenshots deiner besten Reviews und gib sie Claude |
 | Eine Mail sieht kaputt aus (Überlappungen o. ä.) | Sag: *„Mach einen QA-Pass auf Mail X nach System/MASTER-EMAIL-SYSTEM §10 und fixe alle Overlaps."* |
 | Claude „vergisst" das System in einer neuen Session | Einfach wieder `/email-design meine-brand` aufrufen — das lädt alles neu |

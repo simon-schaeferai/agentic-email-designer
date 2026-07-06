@@ -10,19 +10,25 @@ Ergebnis von Phase A–C ist ein **von dir freigegebenes `Brands/<deine-brand>/B
 Claude arbeitet diese Punkte selbstständig ab und trägt alle Funde ins BRAND.md-Entwurf ein (immer mit Quelle). Offene Felder werden als `⚠️ FEHLT` markiert:
 
 1. **Deine Website & Produktseiten**
-   - USPs, Preise, Feature-Fakten, Garantien/Policies → §3, §4
-   - Deine Formulierungen wörtlich sammeln → Voice-Beispielsätze §2
-   - Pain Points, wie du sie selbst benennst → §5
+   - USPs, Preise, Feature-Fakten, Garantien/Policies → BRAND-KIT §3, §4
+   - Deine Formulierungen wörtlich sammeln → Voice-Beispielsätze BRAND-KIT §2
+   - Pain Points, wie du sie selbst benennst → BRAND-KIT §5
 2. **Deine Review-Quelle** (Trustpilot / Judge.me / Amazon / Shop-Reviews)
-   - Score + Anzahl → §4
-   - 10–15 wörtliche Zitate mit Namen → §6 (beste 5 markiert)
-   - Wiederkehrende Kundenformulierungen → zusätzliche Pain Points §5
+   - Score + Anzahl → BRAND-KIT §4
+   - 10–15 wörtliche Zitate mit Namen → BRAND-KIT §6 (beste 5 markiert)
+   - Wiederkehrende Kundenformulierungen → zusätzliche Pain Points BRAND-KIT §5
    - Hinweis: Trustpilot blockt teils automatische Abrufe (403) → dann Screenshots/Export von dir
 3. **Ad-Recherche** (Meta Ad Library — im Browser oder per verbundenem Tool)
-   - Deine laufenden Ads: Hooks, Angles, Offers → CTA-Ideen §7, Pain Points §5
+   - Deine laufenden Ads: Hooks, Angles, Offers → CTA-Ideen BRAND-KIT §7, Pain Points BRAND-KIT §5
    - 2–3 Wettbewerber gegenchecken (Positionierungs-Lücken)
 4. **Deine bisherigen E-Mails** (falls vorhanden: 3–5 weiterleiten oder Screenshots)
    - Was hat funktioniert, was vermeiden
+
+**Shopify-Recon-Rezept** (wenn der Shop auf Shopify läuft — Test: `https://<shop>/products/<handle>.json` liefert JSON):
+- `/products/<handle>.json` pro Produkt: Original-Bilder in voller Auflösung (`images[].src` ohne `?width=`), Preise/UVP (`variants[]`), Beschreibung (`body_html`) — verlässlicher als Markdown-Fetches der Shopseiten
+- Farben/Fonts: Startseiten-HTML roh laden (`curl`) und `--heading-font-family`/`--text-font-family` + häufigste Hex-Werte extrahieren; Theme-CSS liegt unter `/cdn/shop/t/…/assets/`
+- Bilder sichten per Kontaktbogen: alle Galerie-Thumbs (`?width=200`) laden und mit PIL zu einem Übersichts-Bild kacheln — dann EINMAL ansehen statt 50 Einzelbilder
+- ⚠️ **Shop-Galerien mischen cleane Produktfotos mit Marketing-Creatives** (eingebrannte Headlines, Stat-Boxen, Badges). Jedes Bild vor Verwendung sichten; cleane Motive notieren, Creatives meiden oder croppen (Rezept: FIGMA-RECIPES §2)
 
 ## Teil B — Deine Liefer-Liste (12 Punkte)
 
@@ -56,7 +62,7 @@ Claude arbeitet diese Punkte selbstständig ab und trägt alle Funde ins BRAND.m
 3. **Build:** Claude baut per Figma-API nach MASTER-EMAIL-SYSTEM + FIGMA-RECIPES
 4. **QA-Loop:** Export → Crop → Sichtprüfung → Fix (MASTER §10) — für JEDE Mail
 5. **Export:** 8 Slices 2x JPEG + Alt-Texte + 3–5 Subject/Preheader-Sets
-6. **Learnings:** Brand-Besonderheiten zurück ins BRAND.md
+6. **Learnings (zweigeteilt):** Brand-Besonderheiten zurück ins BRAND.md/HASHES/NODES · generische Erkenntnisse (Rezepte, Fallen) als Vorschlag für `System/` dem Nutzer vorlegen — nach Freigabe einarbeiten + `CHANGELOG.md`-Zeile
 
 ## Blocker-Checkliste (ohne diese Punkte keine Produktion)
 
