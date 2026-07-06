@@ -17,11 +17,12 @@ Du musst nicht designen und nicht programmieren können. Claude macht die Arbeit
 | # | Was | Details |
 |---|---|---|
 | 1 | **Claude-Abo** | Pro oder Max (claude.ai) — Claude Code ist enthalten |
-| 2 | **Figma-Account** | kostenloser Account reicht — figma.com |
+| 2 | **Figma-Account** | kostenloser Account reicht zum Reinschnuppern — **fürs Produzieren brauchst du einen Full-/Dev-Seat (Figma Professional)**, sonst deckelt Figma die Agenten-Verbindung auf ~6 Zugriffe pro Monat (siehe Troubleshooting) |
 | 3 | **Deine Produktbilder** | pro Produkt: **3 Stimmungs-/Szenenfotos (hochkant, mind. 1080×1920 px)** + **2 Produktfotos auf ruhigem Hintergrund** + **1 Foto mit Hand/Produkt in Benutzung**. Je größer, desto besser. |
 | 4 | **Dein Logo** | als SVG oder AI (Vektor). Notfalls PNG in hoher Auflösung |
 | 5 | **Deine Fakten** | Kundenzahl, Bewertungs-Score, Versand-/Rückgabe-Versprechen — nur was du belegen kannst |
 | 6 | **~2–3 Stunden** | fürs einmalige Setup + erste Mails |
+| 7 | **Python 3 mit Pillow** | optional, für Bild-Checks/QA — fehlt es, richtet Claude es selbst ein oder findet Umwege |
 
 ---
 
@@ -52,10 +53,22 @@ git clone https://github.com/simon-schaeferai/agentic-email-designer.git
 
 ## 4. Figma verbinden
 
-**Aktion:** Verbinde die Figma-Integration in Claude Code (Einstellungen → Connectors/MCP → **Figma** → mit deinem Figma-Account einloggen und Zugriff erlauben).
+**Aktion — Weg A (empfohlen, offizielles Figma-Plugin):** Terminal öffnen und ausführen:
+```
+claude plugin install figma@claude-plugins-official
+```
+Das installiert die offizielle Figma-Verbindung **samt der `figma-use`-Skills**, die dieses System nutzt. Beim ersten Zugriff loggst du dich mit deinem Figma-Account ein.
+
+**Weg B (manuell, gleicher Server):**
+```
+claude mcp add --transport http figma https://mcp.figma.com/mcp
+```
+
+Beide Befehle zeigt dir auch Figma selbst: im Editor rechts unter **„Drittanbieter-Agenten zu Figma bringen" → „Agenten einrichten" → Claude Code**. Wer Claude Code über die claude.ai-Connectors nutzt, kann Figma alternativ dort verbinden — gleicher Server.
 
 **✓ Check:** Schreib Claude: *„Prüfe per Figma-whoami, mit welchem Account ich verbunden bin."* — Claude nennt deinen Figma-Namen.
 
+> ⚠️ Nutze genau diese Verbindung (Server `mcp.figma.com`) — **nicht** den lokalen „Dev Mode MCP" aus der Figma-Desktop-App. Der hat andere Werkzeuge und funktioniert mit diesem System nicht.
 > ⚠️ Die Verbindung braucht **Bearbeiten-Rechte** auf die Dateien, mit denen Claude arbeitet. Eigene Dateien in deinem Account sind automatisch okay.
 
 ## 5. Design-Bibliothek in dein Figma holen

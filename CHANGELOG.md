@@ -4,6 +4,8 @@
 
 ## 2026-07-06
 
+- SETUP: Figma-Verbindung mit offiziellen Befehlen (`claude plugin install figma@claude-plugins-official` bzw. `claude mcp add …`), Abgrenzung zum lokalen Dev-Mode-MCP; ehrliche Figma-Kosten-Zeile in Kapitel 0 (Full-/Dev-Seat fürs Produzieren); Python/Pillow als optionale Voraussetzung
+
 - System: Learnings-Pass als Pflicht-Schritt 6 im `/email-design`-Skill (brand-lokal ohne Rückfrage, generisch → System-Vorschlag mit Freigabe + CHANGELOG-Zeile)
 - FIGMA-RECIPES: Rezepte aus der ersten Produktion ergänzt — Upload-per-curl-Flow, BG-Blend statt rembg, CROP gegen eingebrannte Overlays, `frame.screenshot()`-QA, Fix-Regel (Node-Typ prüfen), Export/Slicing-Rezept (ungetestet)
 - ONBOARDING: Shopify-Recon-Rezept (Produkt-JSON, Theme-CSS, Kontaktbögen) + Warnung vor Text-Creatives in Shop-Galerien; §-Verweise als „BRAND-KIT §N" qualifiziert; Learnings-Punkt zweigeteilt
