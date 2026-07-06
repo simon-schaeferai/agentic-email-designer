@@ -7,6 +7,8 @@ Alle hart erarbeiteten Learnings aus der Produktion. Vor jedem Build lesen.
 
 ## 1. Setup-Grundlagen
 
+- **Werkzeugkasten (optional, empfohlen für die Mechanik):** [figma-helpers.js](figma-helpers.js) — 12 Helfer (messen, stapeln, zentrieren, Pre-QA), die die häufigsten Layout-Rechenfehler eliminieren. Bei Nutzung: Datei VERBATIM an den Script-Anfang kopieren (nie kürzen) und `{hv:HV, …}` im return echoen — fehlt `hv`, wurde die Kopie verstümmelt. Werkzeuge, kein Korsett: Komposition bleibt frei, rohe Plugin-API jederzeit erlaubt.
+
 - **Fonts laden vor JEDER Textmutation** — auch die Fonts von BESTANDS-Texten, die nur verschoben/resized werden:
   ```js
   await figma.loadFontAsync({family:'{{FONT}}', style:'Black'});
@@ -49,7 +51,7 @@ Alle hart erarbeiteten Learnings aus der Produktion. Vor jedem Build lesen.
   t.resize(600, 10);          // Breite setzen — killt HEIGHT!
   t.textAutoResize = 'HEIGHT'; // → Höhe stimmt wieder
   ```
-- **Punchline-Fit-Formel** (XXL-Headline auf Zielbreite bringen):
+- **Punchline-Fit-Formel** (XXL-Headline auf Zielbreite bringen) — als Helfer: `fitText(t, 960)`:
   ```js
   t.fontSize = 100; t.textAutoResize = 'WIDTH_AND_HEIGHT';
   t.fontSize = Math.min(CAP /*≈220–230*/, Math.floor(100 * ZIEL /*≈960*/ / t.width));
@@ -79,7 +81,20 @@ for (const n of m.children) { if (n.y >= atY) n.y += H; }
 m.resize(m.width, m.height + H);
 // 3. neue Nodes bei atY einbauen, Constraints MIN/MIN
 ```
-**Vorsicht:** Verschiebe-Filter wie `y>=subY && width<1050` erwischen auch Hero-Cutouts — vorher entscheiden, ob das Cutout mitwandern soll.
+**Vorsicht:** Verschiebe-Filter wie `y>=subY && width<1050` erwischen auch Hero-Cutouts — vorher entscheiden, ob das Cutout mitwandern soll. Als Helfer: `shiftDown(m, atY, H, skip)` — die Cutout-Ausnahme wird zum expliziten `skip`-Callback.
+
+## 5b. Auto-Layout in Baustein-Frames (erlaubt und empfohlen)
+
+Die „kein Auto-Layout"-Regel gilt für den MAIL-FRAME (flach, wegen Shift-Down) — **innerhalb von Baustein-Frames ist Auto-Layout erlaubt** und macht abgeschnittene Texte strukturell unmöglich:
+
+| Baustein | Auto-Layout? | Modus |
+|---|---|---|
+| Badge-Pill, Glass-/Outline-Capsule | ✔ empfohlen (`pill()`-Helfer) | HORIZONTAL, HUG×HUG — Container wächst mit Text |
+| CTA-Buttons | ✔ empfohlen (`button()`-Helfer) | Fixmaß lt. Spec, Auto-Layout zentriert + klemmt das Label |
+| Cards (Review, VS-Spalten, Q&A) | optional | VERTICAL, Breite FIXED, Höhe HUG; freie Deko-Kinder via `layoutPositioning:'ABSOLUTE'` |
+| Sections als Ganzes, Hero, Mail-Frame | ✘ nein | geschichtete Kompositionen → plain Frame + `stack()`/`centerX()` |
+
+Zwei Fallen: (a) `resize()` auf einem HUG-Frame stellt still auf FIXED um — Pills nie resizen, stattdessen Text/Padding ändern. (b) `x/y` auf Kindern IN Auto-Layout ist wirkungslos — Padding/`itemSpacing` nutzen. (c) Rotation nur am GANZEN Baustein-Frame, nie an Auto-Layout-Kindern.
 
 ## 6. Gruppierte Bausteine als Frames
 
@@ -92,6 +107,7 @@ Zusammengehörige Elemente (Banner, Cards, Siegel) als **Frame** bauen (`createF
 ## 8. QA-Export
 
 - **Schnellster Weg für Frames bis ~2500 px:** `await frame.screenshot()` am ENDE desselben `use_figma`-Calls — das Bild kommt inline zurück, Build und Sichtprüfung in einem Call.
+- **Pre-QA vor dem Screenshot (optional, spart Fix-Zyklen):** `qaCheck(m)` aus dem Werkzeugkasten meldet Layout-Defekte als Daten (Überlappungen, abgeschnittene/verdeckte Texte, Spalten-Überläufe) — Befunde bewerten und fixen, BEVOR der Screenshot fällt. Ersetzt die Sichtprüfung NICHT (Kontrast auf Fotos, Bildanschnitt, Ästhetik sieht nur der Export). Absichtliche Design-Entscheidungen im QA-Bericht als solche benennen.
 - `download_assets` (PNG, scale 1) — bei Mails > 4096 px Höhe wird gedeckelt (Breite schrumpft proportional, ~530–630 px: ausreichend für QA).
 - `get_screenshot` liefert nur 1024 px lange Kante → für lange Mails unbrauchbar.
 - Crop-Workflow: Export laden → per PIL auf die Ziel-Region croppen → ansehen. NIE ungesehen liefern.
@@ -112,6 +128,12 @@ Pro Brand in `Brands/<brand>/` pflegen:
 ## 11. Export/Slicing (MASTER §11) — ⚠️ UNGETESTET, beim ersten realen Export verifizieren und dieses Rezept nachschärfen
 
 1. Frame-Höhe auf eine durch 8 teilbare Zahl bringen (unten minimal Weißraum ergänzen).
-2. Pro Slice einen Kind-Frame (1080 × H/8) bei y = i·H/8 anlegen mit `exportSettings = [{format:'JPG', constraint:{type:'SCALE', value:2}}]`.
-3. Je Slice einzeln `download_assets` — umgeht den 4096-px-Deckel, weil pro Slice exportiert wird.
+2. Pro Slice ein **`figma.createSlice()`** (1080 × H/8) bei y = i·H/8 über der Mail platzieren, mit `exportSettings = [{format:'JPG', constraint:{type:'SCALE', value:2}}]`. **NICHT Kind-Frames verwenden** — ein Frame exportiert nur den EIGENEN Teilbaum und liefert leere JPGs; SLICE-Nodes exportieren die darunterliegende Canvas-Region.
+3. Je Slice einzeln `download_assets` — umgeht den 4096-px-Deckel, weil pro Slice exportiert wird. Slices danach löschen.
 4. Ablage: `Brands/<brand>/export/<mail-name>/` als `01.jpg` … `08.jpg` + `alt-texte.md` (pro Slice ein Alt-Text, zusammen die lesbare Text-Version) + `subjects.md` (3–5 Subject/Preheader-Sets).
+
+## 12. Namenskonvention (Empfehlung — macht Pre-QA präzise und Fixes ID-frei)
+
+Jeder erzeugte Node: `<sektion>/<rolle>[-n]` — z. B. `hero/punch-1`, `sec2/bg`, `hero/cutout`. Rollen mit QA-Semantik: `bg` (Hintergrund — Text darauf ist normal), `deco` (Glows/Transitions — von allen Checks ausgenommen), `img`/`cutout` (Bildmaterial — Text-Kollision wird gemeldet), `btn`/`pill` (Label-Fit wird geprüft). Suffix `~free` = Node bewusst von qaCheck ausgenommen (im QA-Bericht nennen!). Fixes laufen dann über `byName(m, 'hero/punch-1', 'TEXT')`/`setText()` statt über gemerkte IDs — die Fehlerklasse „falschen Node erwischt" verschwindet.
+
+**Smoke-Test nach jeder Änderung an figma-helpers.js** (ein Call): Test-Frame bauen mit (a) `pill()` mit Überlänge-Text, (b) Rect `t/img` + Text absichtlich darüber, (c) Text absichtlich unter einem später appendeten Rect, (d) 4er-`stack()`. Erwartung: `qaCheck` meldet GENAU die 2 absichtlichen Fehler (TEXT_OVERLAP, COVERED) und keine falschen; Pill-Text vollständig. Danach Test-Frame löschen.

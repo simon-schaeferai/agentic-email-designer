@@ -20,7 +20,7 @@ Onboarding-Prozess: siehe [ONBOARDING.md](ONBOARDING.md).
 | Logo | `{{LOGO_NODE}}` — als Klon-Quelle in der Brand-Figma-Datei anlegen |
 | Lesbarkeit | Mobile-first: Body nie unter ~30 px, Icons groß, alles ohne Zoomen lesbar |
 | Footer | **Kein** Footer-Block im Design — der Footer kommt aus dem ESP (Klaviyo) |
-| Struktur | **Ein flacher Frame** pro Mail: alle Elemente direkt als Kinder (kein Auto-Layout, keine Verschachtelung) |
+| Struktur | **Ein flacher Frame** pro Mail: alle Elemente/Bausteine direkt als Kinder, kein Auto-Layout auf Mail-Frame-Ebene. Baustein-Frames (Pill/Button/Capsule/Card) DÜRFEN intern Auto-Layout nutzen (FIGMA-RECIPES §5b) |
 | Constraints | Nach jedem Build/Patch ALLE Kinder auf `MIN/MIN` locken |
 | Bilder | Pro Mail nur Bilder der beworbenen Produktlinie — nie Produktlinien mischen |
 | Fakten | Nur belegbare Trust-Fakten aus `{{TRUST_FACTS}}`, nur echte Reviews aus `{{REVIEWS}}` — **nichts erfinden** |

@@ -4,6 +4,7 @@
 
 ## 2026-07-06
 
+- Experiment: optionaler Layout-Werkzeugkasten `System/figma-helpers.js` (12 Helfer + `qaCheck`-Pre-QA als Bericht) — Werkzeuge, kein Korsett; Auto-Layout in Baustein-Frames erlaubt (RECIPES §5b), Namenskonvention als Empfehlung (§12), Export-Rezept auf `createSlice()` korrigiert (Kind-Frames lieferten leere JPGs)
 - SETUP: Figma-Verbindung mit offiziellen Befehlen (`claude plugin install figma@claude-plugins-official` bzw. `claude mcp add …`), Abgrenzung zum lokalen Dev-Mode-MCP; ehrliche Figma-Kosten-Zeile in Kapitel 0 (Full-/Dev-Seat fürs Produzieren); Python/Pillow als optionale Voraussetzung
 
 - System: Learnings-Pass als Pflicht-Schritt 6 im `/email-design`-Skill (brand-lokal ohne Rückfrage, generisch → System-Vorschlag mit Freigabe + CHANGELOG-Zeile)

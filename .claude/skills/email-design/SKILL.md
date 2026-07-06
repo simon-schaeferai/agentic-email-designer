@@ -20,7 +20,7 @@ Niemals stillschweigend Platzhalter einbauen, Fakten erfinden oder Reviews ausde
 ## Schritt 0 — Kontext laden (PFLICHT, vor allem anderen)
 
 1. Lies `System/MASTER-EMAIL-SYSTEM.md` — das Regelwerk (Hero-Aufbau, 4 Headline-Typo-Stile, 23 Section-Typen, Copy-Regeln, QA, Export).
-2. Lies `System/FIGMA-RECIPES.md` — technische Plugin-API-Rezepte und bekannte Fallen.
+2. Lies `System/FIGMA-RECIPES.md` — technische Plugin-API-Rezepte und bekannte Fallen — sowie `System/figma-helpers.js` (optionaler Werkzeugkasten für Layout-Mechanik + Pre-QA).
 3. Lies `Brands/<brand>/BRAND.md` — alle Brand-Parameter — sowie `HASHES.md`/`NODES.md` daneben, falls vorhanden.
 4. Lade das `figma-use`-Skill, bevor du `use_figma` aufrufst.
 
@@ -38,7 +38,7 @@ Pro Mail: Kicker (Szene/Flüsterzeile) + XXL-Punchline (Payoff, ein Akzentwort) 
 
 ## Schritt 3 — Build in Figma
 
-In der Brand-Figma-Datei des Nutzers (Duplikat der Master-Library „EMAIL-SYSTEM-LIBRARY" oder neue Datei). Nach MASTER-EMAIL-SYSTEM §2 (Hero) und §4/§5 (Sections/Body), technisch nach FIGMA-RECIPES. Bilder: Hintergrund entfernen (rembg) wo nötig, hochladen, Hash sofort in `Brands/<brand>/HASHES.md` eintragen; neue Frame-IDs in `NODES.md`. **Blocker-Check:** Brand-Font in Figma verfügbar? Edit-Zugriff auf die Datei? Wenn nein → melden mit Lösungsweg.
+In der Brand-Figma-Datei des Nutzers (Duplikat der Master-Library „EMAIL-SYSTEM-LIBRARY" oder neue Datei). Nach MASTER-EMAIL-SYSTEM §2 (Hero) und §4/§5 (Sections/Body), technisch nach FIGMA-RECIPES. Bilder: Hintergrund entfernen (rembg) wo nötig, hochladen, Hash sofort in `Brands/<brand>/HASHES.md` eintragen; neue Frame-IDs in `NODES.md`. Empfohlen: pro Section bauen und am Call-Ende `qaCheck` + Screenshot — Mechanik den Helfern (`figma-helpers.js`), Komposition bleibt frei. **Blocker-Check:** Brand-Font in Figma verfügbar? Edit-Zugriff auf die Datei? Wenn nein → melden mit Lösungsweg.
 
 ## Schritt 4 — QA (für JEDE Mail, keine Ausnahme)
 
