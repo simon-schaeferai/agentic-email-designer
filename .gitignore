@@ -9,3 +9,10 @@ Thumbs.db
 
 # Lokale Claude-Einstellungen (Skill bleibt versioniert)
 .claude/settings.local.json
+CLAUDE.local.md
+.mcp.local.json
+
+# Secrets
+.env
+.env.*
+!.env.example

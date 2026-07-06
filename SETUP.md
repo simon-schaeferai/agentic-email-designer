@@ -62,11 +62,13 @@ git clone https://github.com/simon-schaeferai/agentic-email-designer.git
 
 Die **EMAIL-SYSTEM-LIBRARY** enthält alle Master-Vorlagen: 4 Headline-Stile, 9 Übergänge, 23 fertige Section-Typen (neutral in Graustufen — deine Farben kommen später automatisch drauf).
 
-**Aktion:** Öffne `{{LIBRARY_LINK}}` → oben **„Duplicate"/„Duplizieren"** klicken → die Kopie liegt jetzt in deinen Figma-Drafts.
+Dieses Repo enthält bewusst **keinen** fertigen Figma-Link (jeder arbeitet in seinem eigenen Figma). Du hast zwei Wege, an die Library zu kommen:
+
+**Weg A (Standard, ohne Vorlage):** Sag Claude: *„Baue mir die Master-Library nach System/MASTER-EMAIL-SYSTEM.md §4 in einer neuen Figma-Datei auf."* — Claude legt die komplette EMAIL-SYSTEM-LIBRARY in deinem Figma an.
+
+**Weg B (falls du schon eine Library-Datei hast):** Öffne deinen **eigenen** Figma-Link dazu → oben **„Duplicate"/„Duplizieren"** → die Kopie liegt in deinen Drafts. Deinen Link kannst du dir hier notieren: `______`.
 
 **✓ Check:** In deinem Figma existiert eine Datei „EMAIL-SYSTEM-LIBRARY".
-
-> Link geht nicht? Sag Claude: *„Baue mir die Master-Library nach System/MASTER-EMAIL-SYSTEM.md §4 in einer neuen Figma-Datei auf."* — dauert länger, gleiches Ergebnis.
 
 ## 6. Dein Brand-Onboarding starten
 
