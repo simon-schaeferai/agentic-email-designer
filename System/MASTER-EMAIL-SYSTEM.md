@@ -36,8 +36,10 @@ Reihenfolge von oben nach unten:
 3. **Kicker-Zeile** — klein, `{{FONT_DISPLAY}}` SemiBold-Äquivalent 32–42, CAPS, 75–85 % Deckkraft, reiner Text (keine Pill)
 4. **XXL-Punchline** — fetteste Schnitt-Stufe **105–230 px**, füllt ~960 px Breite (links-ausgerichtet: ~880 px). Ein Wort in der Mail-Akzentfarbe
 5. **Sub** — Body-Schnitt 38–52, max. 2–3 Zeilen, punchy
-6. **Heller CTA-Button** — 769×148 px, Radius 44, Text fett ~70 in `{{COLOR_INK}}` (links-ausgerichtete Mails: 560 px breit)
+6. **Heller CTA-Button** — 769×148 px, Radius `{{BUTTON_RADIUS}}` (aus dem Brand-Kit — 0 = eckig, 44 = Pille), Text fett ~70 in `{{COLOR_INK}}` (links-ausgerichtete Mails: 560 px breit)
 7. **Glass-Capsule** unter dem Button (Pill mit Background-Blur, Micro-Trust-Zeile)
+
+**CTA-Typo-Hierarchie (PFLICHT):** Die Stützzeile unter einem CTA (Capsule, Abbinder) muss **deutlich kleiner** sein als der Button-Text — Ziel-Verhältnis **≤ 0,5** (Button ~64–70 → Stützzeile ~30–34). Nie fast gleich groß: eine Full-Width-Zeile bei 40 px wirkt gegen einen geboxten 64-px-Button optisch gleich laut und schwächt den CTA. Kapsel-Pills an die kleinere Textbreite anpassen (huggen), nicht leer stehen lassen.
 
 **Hintergrund:** Foto 1080×1920 oben + Gradient-Overlay für Textlesbarkeit + Photo-Cover-Rechteck darunter (Standard y=2160) + **Transition-Shape** zum nächsten Abschnitt.
 
@@ -124,7 +126,7 @@ Wave · Wave 2 · Zigzag · Zigzag fein · Diagonal · Diagonal 2 · Arc · Arc-
 
 1. Transition + erste Content-Section
 2. 1–2 Unique-Sections aus dem Baukasten
-3. **Dunkler CTA-Button** 960×148, Radius 16, heller Text + Outline-Capsule (Preis/USP)
+3. **Dunkler CTA-Button** 960×148, Radius `{{BUTTON_RADIUS}}`, heller Text + Outline-Capsule (Preis/USP)
 4. Dunkles Icon-Band oder weitere Section
 5. **Finale Headline** (fett ~90–100, 2 Zeilen) + Abbinder-Sub
 6. Zweiter dunkler CTA (gleicher CTA-Text wie oben)

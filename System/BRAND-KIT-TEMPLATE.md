@@ -35,6 +35,7 @@
 | `FONT_DISPLAY` | | Black/ExtraBold + Italic | ☐ Google Font ☐ Lizenz-Datei erhalten ☐ in Figma installiert |
 | `FONT_BODY` | | SemiBold, Medium | |
 
+- `BUTTON_RADIUS`: ____ px (0 = eckige Buttons, 44 = Pillen-Form — Info-Kapseln bleiben unabhängig davon rund)
 - `LETTER_SPACING`: ____ % (pro Font neu kalibrieren! Test: Punchline in 200 px setzen — Wortbild muss kompakt, aber nicht verklebt sein)
 - Fallback, falls Brand-Font in Figma fehlt: `<Fallback-Font aus derselben Klasse>` — von mir freigegeben: ☐
 

@@ -24,3 +24,4 @@
 ## 2026-07-04
 
 - Initial Release: System-Regelwerk (MASTER, FIGMA-RECIPES, ONBOARDING, BRAND-KIT-TEMPLATE), `/email-design`-Skill, Beispiel-Brand, SETUP-Anleitung
+- CTA-Typo-Hierarchie (Stützzeile ≤ 0,5 der Button-Größe) + `BUTTON_RADIUS` als Brand-Token wiederhergestellt (waren beim History-Rewrite verloren gegangen).
