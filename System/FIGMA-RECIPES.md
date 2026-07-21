@@ -57,7 +57,7 @@ Alle hart erarbeiteten Learnings aus der Produktion. Vor jedem Build lesen.
   t.fontSize = Math.min(CAP /*≈220–230*/, Math.floor(100 * ZIEL /*≈960*/ / t.width));
   ```
 - **Akzentwort einfärben:** `t.setRangeFills(idx, len, [{type:'SOLID', color:ACCENT}])`
-- LineHeight Punchlines 100–104 %, Kicker 120 %. `lineHeight`/`letterSpacing` immer als `{unit,value}`.
+- LineHeight: einzeilige Punchlines 100–104 %, **mehrzeilige Headlines NIE 100 % — mindestens 110 %** (sonst kleben die Zeilen), Kicker 120 %. `lineHeight`/`letterSpacing` immer als `{unit,value}`.
 - Sonderglyphen (★ ✓) NICHT als Text — nicht jeder Font hat sie. Sterne mit `createStar`, Häkchen als SVG.
 
 ## 4. SVG & Icons

@@ -54,6 +54,8 @@ Reihenfolge von oben nach unten:
 
 **Autoscale-Regel:** Punchline so groß wie möglich; wenn der Stack den Sub verdrängt, in 8-%-Schritten verkleinern (nie unter ~100 px). Abstände: Kicker→Punch 24–26 px, Punch→Punch 8–10 px, Stack→Sub ≥ 16 px.
 
+**Zeilenabstand (PFLICHT):** **Mehrzeilige Headlines nie mit lineHeight 100 %** — mindestens **110 %**, sonst kleben die Zeilen. 100–104 % ist nur für einzeilige Punchlines erlaubt (dort verhindert es überflüssigen Weißraum).
+
 ### Links-ausgerichtete Color-Heros (Sonderfall)
 - Vollflächiger Farb-Hintergrund statt Foto, Text links bei x=70
 - **Textspalte max. 630 px** (Sub 540–600 px), Produkt-Cutout rechts
@@ -113,6 +115,15 @@ Wave · Wave 2 · Zigzag · Zigzag fein · Diagonal · Diagonal 2 · Arc · Arc-
 - Banner-Texte nach AUSSEN: linke Banner Text bei x=36 (endet < 350), rechte bei x=134 — innere Enden bleiben leer und verschwinden hinterm Produkt
 - Headings 36–42 (kein Wortende hinterm Produkt!), Body 32 bei 65 % Deckkraft, Breite 290
 - Siegel: Stern-Node 20 Zacken, innerRadius 0.88 — außen Akzent (320 px), innen Ink (280 px), helle Texte + 5 Mini-Sterne, −8° rotiert
+
+### Look „Dark Glow" (Launch-/Drop-Mails)
+Bewährter Premium-Look für Launches und Limited Drops — komplette Mail auf dunklem Grund:
+- **Hintergrund:** Fast-Schwarz (`~#080809`) + 6–8 **Glow-Circles** (Ellipsen mit Radial-Gradient, Akzentfarbe → transparent, Radius 380–520, Deckkraft 0,35–0,65), abwechselnd links/rechts hinter den Sections verteilt. Farbverlauf der Glows = Farbwelt des Produkts.
+- **Glass-Pills** (Badge, Capsule): Outline 2,5 px Weiß 90 %, Füllung Weiß 5 %, Background-Blur 30, keine Schatten.
+- **Blur-Panels** für Listen-Content („3 Gründe", Fakten): Radius 40, dunkle Füllung 55 % + Background-Blur 28, Stroke Weiß 28 % — Schrift groß (Headline ≥ 84, Zahlen ≥ 96 in Akzent, Zeilen ≥ 50/38).
+- **Callout-Linien am Produkt:** dünne Linien (3 px) + 10-px-Punkt, Kurz-Labels (SemiBold ≥ 44) + Mini-Sub (≥ 32) — Labels immer auf dunkler Fläche, nie über hellen Bildbereichen.
+- **CTAs:** weiße eckige Buttons mit dunkler Schrift; Icons groß (Icon-Grids ≥ 100 px Icons, Labels ≥ 44).
+- Review-Sprechblasen weiß mit Tail-Dreieck, Sterne als Star-Nodes.
 
 ### Bauregeln Verified-Buyer-Cards (#23)
 - Vollbreites Ink-Band, Kicker (34, 60 % hell) + Headline (fett 70, hell)
